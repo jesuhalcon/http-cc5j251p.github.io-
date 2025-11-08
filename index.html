@@ -1,23 +1,23 @@
+
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Consulta de Calificaciones</title>
+  <title>Consulta de Calificaciones 2P</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <meta name="description" content="Consulta de porcentajes por matrícula" />
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-800">
   <header class="max-w-3xl mx-auto px-4 pt-10 pb-4">
-    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Consulta de Calificaciones</h1>
+    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Consulta de Calificaciones 2P</h1>
     <p class="mt-2 text-sm text-slate-600">Escribe tu <span class="font-semibold">número de matrícula</span>.</p>
   </header>
-
   <main class="max-w-3xl mx-auto px-4 pb-16">
     <div class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 p-5 sm:p-6">
       <form id="form" class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-end">
         <div class="flex-1">
-          <label for="matricula" class="block text-sm font-medium text-slate-700">Matrícula</label>
+          <label for="matricula" class="block text.sm font-medium text-slate-700">Matrícula</label>
           <input id="matricula" name="matricula" type="number" autocomplete="off"
                  class="mt-1 w-full rounded-xl border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 px-4 py-2.5"
                  placeholder="Ej. 202500123" required>
@@ -27,65 +27,59 @@
           Consultar
         </button>
       </form>
-
       <div id="resultado" class="mt-6 hidden">
         <div id="card" class="rounded-2xl border border-slate-200 bg-slate-50 p-5"></div>
       </div>
-
       <div id="mensaje" class="mt-6 hidden"></div>
-
       <p class="mt-8 text-xs text-slate-500">Última actualización: <span id="ultima"></span></p>
     </div>
   </main>
-
   <footer class="max-w-3xl mx-auto px-4 pb-8 text-center text-xs text-slate-500">
     Hecho con HTML + Tailwind + JavaScript. Sitio 100% estático.
   </footer>
-
   <script>
-    // DATA generado automáticamente desde tu CSV
     let DATA = {
   "25330061340054": {
-    "apuntes": 5.0,
+    "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 30.95,
-    "calificacion": 65.95
+    "test": 20.0,
+    "posttest": 41.67,
+    "calificacion": 91.67
   },
   "25330061340634": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 50.0,
-    "calificacion": 90.0
+    "test": 0.0,
+    "posttest": 55.0,
+    "calificacion": 85.0
   },
   "25330061340055": {
+    "apuntes": 0.0,
+    "tarea": 10.0,
+    "test": 0.0,
+    "posttest": 46.67,
+    "calificacion": 56.67
+  },
+  "25330061340056": {
+    "apuntes": 10.0,
+    "tarea": 0.0,
+    "test": 20.0,
+    "posttest": 43.33,
+    "calificacion": 73.33
+  },
+  "25330061340057": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 40.48,
-    "calificacion": 90.48
-  },
-  "25330061340056": {
-    "apuntes": 0.0,
-    "tarea": 0.0,
-    "test": 0.0,
-    "posttest": 35.7,
-    "calificacion": 35.7
-  },
-  "25330061340057": {
-    "apuntes": 0.0,
-    "tarea": 0.0,
-    "test": 0.0,
-    "posttest": 33.34,
-    "calificacion": 33.34
+    "posttest": 5.0,
+    "calificacion": 55.0
   },
   "25330061340058": {
-    "apuntes": 5.0,
+    "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 42.9,
-    "calificacion": 77.9
+    "test": 0.0,
+    "posttest": 56.67,
+    "calificacion": 86.67
   },
   "25330061340059": {
     "apuntes": 10.0,
@@ -98,328 +92,326 @@
     "apuntes": 0.0,
     "tarea": 0.0,
     "test": 0.0,
-    "posttest": 0.0,
-    "calificacion": 0.0
+    "posttest": 53.33,
+    "calificacion": 53.33
   },
   "25330061340061": {
-    "apuntes": 0.0,
+    "apuntes": 10.0,
     "tarea": 0.0,
-    "test": 0.0,
-    "posttest": 4.76,
-    "calificacion": 4.76
+    "test": 20.0,
+    "posttest": 26.67,
+    "calificacion": 56.67
   },
   "25330061340062": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 45.24,
-    "calificacion": 95.24
+    "posttest": 45.0,
+    "calificacion": 95.0
   },
   "25330061340063": {
-    "apuntes": 5.0,
+    "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 38.09,
-    "calificacion": 73.09
+    "test": 20.0,
+    "posttest": 35.0,
+    "calificacion": 85.0
   },
   "25330061340064": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 35.7,
-    "calificacion": 85.7
-  },
-  "25330061340065": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 40.48,
-    "calificacion": 90.48
-  },
-  "25330061340066": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 47.62,
-    "calificacion": 87.62
-  },
-  "25330061340067": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 0.0,
-    "posttest": 38.09,
-    "calificacion": 68.09
-  },
-  "25330061340068": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 40.48,
-    "calificacion": 90.48
-  },
-  "25330061340069": {
-    "apuntes": 5.0,
-    "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 45.24,
-    "calificacion": 90.24
-  },
-  "25330061340070": {
-    "apuntes": 5.0,
-    "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 23.81,
-    "calificacion": 58.81
-  },
-  "25330061340071": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 30.95,
-    "calificacion": 70.95
-  },
-  "25330061340072": {
-    "apuntes": 5.0,
-    "tarea": 0.0,
-    "test": 0.0,
-    "posttest": 40.48,
-    "calificacion": 45.48
-  },
-  "25330061340073": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 0.0,
-    "posttest": 45.24,
-    "calificacion": 75.24
-  },
-  "25330061340074": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 35.7,
-    "calificacion": 85.7
-  },
-  "25330061340075": {
-    "apuntes": 5.0,
-    "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 14.3,
-    "calificacion": 49.3
-  },
-  "25330061340076": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 19.05,
-    "calificacion": 69.05
-  },
-  "25330061340077": {
-    "apuntes": 0.0,
-    "tarea": 0.0,
-    "test": 0.0,
-    "posttest": 26.19,
-    "calificacion": 26.19
-  },
-  "25330061340078": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
     "posttest": 50.0,
     "calificacion": 100.0
   },
+  "25330061340065": {
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 50.0,
+    "calificacion": 100.0
+  },
+  "25330061340066": {
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 41.67,
+    "calificacion": 91.67
+  },
+  "25330061340067": {
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 43.33,
+    "calificacion": 93.33
+  },
+  "25330061340068": {
+    "apuntes": 10.0,
+    "tarea": 0.0,
+    "test": 20.0,
+    "posttest": 40.0,
+    "calificacion": 70.0
+  },
+  "25330061340069": {
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 0.0,
+    "posttest": 45.0,
+    "calificacion": 75.0
+  },
+  "25330061340070": {
+    "apuntes": 10.0,
+    "tarea": 0.0,
+    "test": 0.0,
+    "posttest": 35.0,
+    "calificacion": 45.0
+  },
+  "25330061340071": {
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 31.67,
+    "calificacion": 81.67
+  },
+  "25330061340072": {
+    "apuntes": 0.0,
+    "tarea": 0.0,
+    "test": 0.0,
+    "posttest": 46.67,
+    "calificacion": 46.67
+  },
+  "25330061340073": {
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 50.0,
+    "calificacion": 100.0
+  },
+  "25330061340074": {
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 40.0,
+    "calificacion": 90.0
+  },
+  "25330061340075": {
+    "apuntes": 10.0,
+    "tarea": 0.0,
+    "test": 0.0,
+    "posttest": 43.33,
+    "calificacion": 53.33
+  },
+  "25330061340076": {
+    "apuntes": 10.0,
+    "tarea": 10.0,
+    "test": 20.0,
+    "posttest": 48.33,
+    "calificacion": 78.33
+  },
+  "25330061340077": {
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 48.33,
+    "calificacion": 98.33
+  },
+  "25330061340078": {
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 0.0,
+    "posttest": 40.0,
+    "calificacion": 70.0
+  },
   "25330061340079": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 14.3,
-    "calificacion": 64.3
+    "posttest": 43.33,
+    "calificacion": 93.33
   },
   "25330061340080": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 42.9,
-    "calificacion": 92.9
+    "posttest": 53.33,
+    "calificacion": 103.33
   },
   "25330061340081": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 45.24,
-    "calificacion": 95.24
+    "posttest": 38.33,
+    "calificacion": 88.33
   },
   "25330061340082": {
     "apuntes": 10.0,
-    "tarea": 20.0,
+    "tarea": 0.0,
     "test": 20.0,
-    "posttest": 33.34,
-    "calificacion": 83.34
+    "posttest": 28.33,
+    "calificacion": 58.33
   },
   "25330061340083": {
-    "apuntes": 5.0,
-    "tarea": 20.0,
-    "test": 0.0,
-    "posttest": 38.09,
-    "calificacion": 63.09
+    "apuntes": 0.0,
+    "tarea": 0.0,
+    "test": 20.0,
+    "posttest": 45.0,
+    "calificacion": 65.0
   },
   "25330061340084": {
-    "apuntes": 5.0,
-    "tarea": 0.0,
-    "test": 10.0,
-    "posttest": 21.4,
-    "calificacion": 36.4
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 0.0,
+    "posttest": 25.0,
+    "calificacion": 55.0
   },
   "25330061340085": {
-    "apuntes": 5.0,
+    "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 16.66,
-    "calificacion": 51.66
+    "test": 20.0,
+    "posttest": 30.0,
+    "calificacion": 80.0
   },
   "25330061340086": {
-    "apuntes": 7.5,
-    "tarea": 10.0,
-    "test": 10.0,
-    "posttest": 33.34,
-    "calificacion": 60.84
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 31.67,
+    "calificacion": 81.67
   },
   "25330061340087": {
-    "apuntes": 2.5,
-    "tarea": 0.0,
-    "test": 0.0,
-    "posttest": 50.0,
-    "calificacion": 52.5
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 10.0,
+    "posttest": 51.67,
+    "calificacion": 91.67
   },
   "25330061340088": {
     "apuntes": 10.0,
-    "tarea": 0.0,
-    "test": 10.0,
-    "posttest": 45.24,
-    "calificacion": 65.24
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 48.33,
+    "calificacion": 98.33
   },
   "25330061340089": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 52.38,
-    "calificacion": 102.38
+    "posttest": 40.0,
+    "calificacion": 90.0
   },
   "25330061340090": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 38.09,
-    "calificacion": 88.09
+    "posttest": 45.0,
+    "calificacion": 95.0
   },
   "25330061340091": {
-    "apuntes": 5.0,
+    "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 21.4,
-    "calificacion": 56.4
+    "test": 20.0,
+    "posttest": 41.67,
+    "calificacion": 91.67
   },
   "25330061340092": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 28.6,
-    "calificacion": 78.6
+    "posttest": 41.67,
+    "calificacion": 91.67
   },
   "25330061340093": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 0.0,
-    "calificacion": 40.0
+    "test": 20.0,
+    "posttest": 56.67,
+    "calificacion": 106.67
   },
   "25330061340094": {
     "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 40.48,
-    "calificacion": 80.48
+    "tarea": 0.0,
+    "test": 20.0,
+    "posttest": 48.33,
+    "calificacion": 78.33
   },
   "25330061340095": {
-    "apuntes": 5.0,
-    "tarea": 20.0,
-    "test": 10.0,
+    "apuntes": 10.0,
+    "tarea": 0.0,
+    "test": 20.0,
     "posttest": 50.0,
-    "calificacion": 85.0
+    "calificacion": 80.0
   },
   "25330061340096": {
-    "apuntes": 0.0,
-    "tarea": 0.0,
-    "test": 0.0,
-    "posttest": 0.0,
-    "calificacion": 0.0
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 48.33,
+    "calificacion": 98.33
   },
   "25330061340097": {
-    "apuntes": 0.0,
-    "tarea": 0.0,
-    "test": 10.0,
-    "posttest": 40.48,
-    "calificacion": 50.48
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 20.0,
+    "posttest": 45.0,
+    "calificacion": 95.0
   },
   "25330061340098": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 33.34,
-    "calificacion": 83.34
+    "posttest": 5.0,
+    "calificacion": 55.0
   },
   "25330061340099": {
-    "apuntes": 5.0,
-    "tarea": 20.0,
-    "test": 0.0,
-    "posttest": 16.66,
-    "calificacion": 41.66
-  },
-  "25330061340100": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 42.9,
-    "calificacion": 82.9
+    "test": 20.0,
+    "posttest": 50.0,
+    "calificacion": 100.0
+  },
+  "25330061340100": {
+    "apuntes": 0.0,
+    "tarea": 0.0,
+    "test": 0.0,
+    "posttest": 48.33,
+    "calificacion": 48.33
   },
   "25330061340101": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 54.76,
-    "calificacion": 104.76
+    "posttest": 35.0,
+    "calificacion": 85.0
   },
   "25330061340102": {
-    "apuntes": 0.0,
-    "tarea": 0.0,
-    "test": 10.0,
-    "posttest": 23.81,
-    "calificacion": 33.81
-  },
-  "25330061340103": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 10.0,
-    "posttest": 35.7,
-    "calificacion": 75.7
+    "test": 20.0,
+    "posttest": 31.67,
+    "calificacion": 81.67
+  },
+  "25330061340103": {
+    "apuntes": 0.0,
+    "tarea": 0.0,
+    "test": 20.0,
+    "posttest": 45.0,
+    "calificacion": 65.0
   },
   "25330061340104": {
     "apuntes": 0.0,
     "tarea": 0.0,
-    "test": 0.0,
-    "posttest": 21.4,
-    "calificacion": 21.4
+    "test": 20.0,
+    "posttest": 30.0,
+    "calificacion": 50.0
   },
   "25330061340105": {
-    "apuntes": 2.5,
-    "tarea": 10.0,
-    "test": 0.0,
-    "posttest": 33.34,
-    "calificacion": 45.84
+    "apuntes": 10.0,
+    "tarea": 0.0,
+    "test": 20.0,
+    "posttest": 43.33,
+    "calificacion": 73.33
   }
 };
-
     const LAST_UPDATED = new Date().toLocaleString();
-
     const form = document.getElementById('form');
     const input = document.getElementById('matricula');
     const resultado = document.getElementById('resultado');
@@ -465,7 +457,6 @@
           </div>
         </div>
       `;
-
       resultado.classList.remove('hidden');
     }
 
